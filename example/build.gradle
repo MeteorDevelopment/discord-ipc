@@ -1,0 +1,29 @@
+plugins {
+    id "java"
+    id "application"
+}
+
+group "example"
+version "1.0"
+
+mainClassName = group + ".Main"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation rootProject
+    implementation "com.google.code.gson:gson:2.8.9"
+}
+
+jar {
+    manifest {
+        attributes "Main-Class": mainClassName
+    }
+
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
