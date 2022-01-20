@@ -19,4 +19,4 @@ dependencies {
 ```
 
 ## Examples
-For examples check out `src/test/java/test/Main.java`.  
+For examples check out `example/src/main/java/test/Main.java`.  
