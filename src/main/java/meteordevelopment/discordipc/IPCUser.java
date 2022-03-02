@@ -1,4 +1,4 @@
-package meteordevelopment;
+package meteordevelopment.discordipc;
 
 public class IPCUser {
     public String id;

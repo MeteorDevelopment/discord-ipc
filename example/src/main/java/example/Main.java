@@ -1,7 +1,7 @@
 package example;
 
-import meteordevelopment.DiscordIPC;
-import meteordevelopment.RichPresence;
+import meteordevelopment.discordipc.DiscordIPC;
+import meteordevelopment.discordipc.RichPresence;
 
 import java.time.Instant;
 

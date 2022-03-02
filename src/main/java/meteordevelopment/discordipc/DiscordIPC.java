@@ -1,8 +1,8 @@
-package meteordevelopment;
+package meteordevelopment.discordipc;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import meteordevelopment.connection.Connection;
+import meteordevelopment.discordipc.connection.Connection;
 
 import java.lang.management.ManagementFactory;
 import java.util.function.BiConsumer;

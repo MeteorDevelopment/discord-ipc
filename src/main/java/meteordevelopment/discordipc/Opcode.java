@@ -1,4 +1,4 @@
-package meteordevelopment;
+package meteordevelopment.discordipc;
 
 public enum Opcode {
     Handshake,

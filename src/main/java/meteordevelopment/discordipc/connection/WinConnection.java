@@ -1,8 +1,8 @@
-package meteordevelopment.connection;
+package meteordevelopment.discordipc.connection;
 
 import com.google.gson.JsonParser;
-import meteordevelopment.Opcode;
-import meteordevelopment.Packet;
+import meteordevelopment.discordipc.Opcode;
+import meteordevelopment.discordipc.Packet;
 
 import java.io.IOException;
 import java.io.RandomAccessFile;
