@@ -8,12 +8,12 @@ The library is tested on Windows, Linux and macOS.
 repositories {
     maven {
         name = "meteor-maven"
-        url = "https://maven.meteordev.org"
+        url = "https://maven.meteordev.org/releases"
     }
 }
 
 dependencies {
-    implementation "meteordevelopment:discord-ipc:1.0"
+    implementation "meteordevelopment:discord-ipc:1.1"
     implementation "com.google.code.gson:gson:2.8.9" // GSON is not included but required
 }
 ```
