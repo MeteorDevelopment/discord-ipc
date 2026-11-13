@@ -25,20 +25,36 @@ public abstract class Connection {
         }
         // Unix
         else {
-            String name = null;
+            String path = null;
 
             for (String tempPath : UNIX_TEMP_PATHS) {
-                name = System.getenv(tempPath);
-                if (name != null) break;
+                path = System.getenv(tempPath);
+                if (path != null) break;
             }
 
-            if (name == null) name = "/tmp";
-            name += "/discord-ipc-";
+            if (path == null) path = "/tmp";
 
-            for (int i = 0; i < 10; i++) {
-                try {
-                    return new UnixConnection(name + i, callback);
-                } catch (IOException ignored) {}
+            Path defaultIPCPath=Path.of(path);
+            //this is what the flatpak version of discord runs under
+            Path flatpakIPCPath= defaultIPCPath.resolve("app/com.discordapp.Discord/");
+
+            //if running under flatpak
+            if (Files.exists(flatpakIPCPath)) {
+                for (int i = 0; i < 10; i++) {
+                    try {
+                        return new UnixConnection(flatpakIPCPath.resolve("discord-ipc-"+i).toString(), callback);
+                    } catch (IOException ignored) {
+                    }
+                }
+            }
+            //if running under the normal installation
+            else if (Files.exists(defaultIPCPath)) {
+                for (int i = 0; i < 10; i++) {
+                    try {
+                        return new UnixConnection(defaultIPCPath.resolve("discord-ipc-"+i).toString(), callback);
+                    } catch (IOException ignored) {
+                    }
+                }
             }
         }
 
